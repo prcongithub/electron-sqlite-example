@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script type="text/javascript" src="javascripts/jquery-1.7.2.js"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <div id="users"></div>
+    <div>
+      <form id="user_form">
+        <div>
+          <input type="text" name="user[name]"/>
+          <input type="text" name="user[email]"/>
+          <input type="submit" value="Add"/>
+        </div>
+      </form>
+    </div>
+    <script>
+      var db = require("./db/connection");
+      var UserManager = require("./db/user");
+      UserManager.createTable();
+      $("#user_form").submit(function(e){
+        e.preventDefault();
+        var formData = JSON.parse(JSON.stringify(jQuery('#user_form').serializeArray()));
+        var user = {
+          name: formData[0].value,
+          email: formData[1].value,
+        }
+        UserManager.createUser(user);
+        addUser(user);
+      });
+      
+      function showUsers(){
+        $("#users").html("");
+        db.each("SELECT rowid AS id, name, email FROM users", function(err, row) {
+          addUser(row);
+        });
+      }
+      
+      function addUser(user) {
+        if(user) {
+          $("#users").append("<div>"+user.name+","+user.email+"</div>");
+        }
+      }
+      showUsers();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "binary": {
+    "module_name": "",
+    "module_path": "",
+    "host": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom/electron-quick-start.git"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/atom/electron-quick-start/issues"
+  },
+  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "devDependencies": {
+    "asar": "^0.9.0",
+    "electron-prebuilt": "^0.36.2",
+    "fs-jetpack": "^0.7.1",
+    "q": "^1.4.1",
+    "rcedit": "^0.3.0",
+    "nan": "*",
+    "sqlite3": "*"
+  }
+}
