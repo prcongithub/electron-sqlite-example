@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <% include shared/head %>
+  <body class="container">
+    <header>
+      <% include shared/header %>
+    </header>
+    <main>  
+      <h1>Hello World!</h1>
+      We are using node <script>document.write(process.versions.node)</script>,
+      Chrome <script>document.write(process.versions.chrome)</script>,
+      and Electron <script>document.write(process.versions.electron)</script>.
+      <a href="#" id="home">Home</a>
+    </main>
+    <footer>
+      <% include shared/footer %>
+    </footer>
+    <script>
+      var homeButton = document.getElementById("home");
+      const remote = require('electron').remote;
+      homeButton.onclick = function(){
+        var mainWindow = remote.getCurrentWindow()
+        mainWindow.loadURL('file://' + __dirname + '/home.ejs');
+      }
+    </script>
+  </body>  
+</html>  

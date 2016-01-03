@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <script type="text/javascript" src="javascripts/jquery-1.7.2.js"></script>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <div id="users"></div>
-    <div>
-      <form id="user_form">
-        <div>
-          <input type="text" name="user[name]"/>
-          <input type="text" name="user[email]"/>
-          <input type="submit" value="Add"/>
-        </div>
-      </form>
-    </div>
+  <% include shared/head %>
+  <body class="container">
+    <header>
+      <% include shared/header %>
+    </header>  
+    <main>
+      <h1>Hello World!</h1>
+      <div id="users"></div>
+      <div>
+        <form id="user_form">
+          <div>
+            <input type="text" name="user[name]"/>
+            <input type="text" name="user[email]"/>
+            <input type="submit" value="Add"/>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <% include shared/footer %>
+    </footer>
     <script>
-      var db = require("./db/connection");
-      var UserManager = require("./db/user");
+      var db = require("../db/connection");
+      var UserManager = require("../db/user");
       UserManager.createTable();
       $("#user_form").submit(function(e){
         e.preventDefault();
