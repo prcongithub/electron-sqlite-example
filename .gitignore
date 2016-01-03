@@ -1,3 +1,5 @@
 **/*/node_modules
 HelloWorld-linux-x64
 HelloWorld-win32-x64
+*.zip
+*.log
