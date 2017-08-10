@@ -8,7 +8,7 @@ var UserManager = {
     });
   },
   createUser: function(user){
-    var stmt = db.prepare("INSERT INTO users(name, email) VALUES ('"+user.name+"','"+user.email+"')");
+    var stmt = db.prepare("INSERT INTO users(name, email) VALUES (?, ?)", [user.name, user.email]);
     stmt.run();
     stmt.finalize();
   }
